@@ -1,0 +1,71 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - bin/*
+    - Guardfile
+    - spec/spec_helper.rb
+
+AlignParameters:
+  # allow for multi-line methods to have normal indentation.
+  # for example:
+  #
+  # Person.where(
+  #   first_name: 'tom',
+  #   last_name: 'foolery'
+  # )
+  EnforcedStyle: with_fixed_indentation
+
+ClassAndModuleChildren:
+  # ok to use compact style when modules are predefined.
+  # for example the following is fine so long as we're sure that
+  # module MDB has already been required/defined.
+  #
+  # class MDB::Person; end
+  Enabled: false
+
+Documentation:
+  # don't require classes to be documented
+  Enabled: false
+
+Encoding:
+  # no need to always specify encoding
+  Enabled: false
+
+Layout/AlignParameters:
+  # allow for end of if to be aligned with a variable.
+  # for example:
+  #
+  # foo = if a == b
+  #   'bar'
+  # else
+  #   'baz'
+  # end
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Lint/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Naming/FileName:
+  Enabled: false
+
+Security/YAMLLoad:
+  # The sources of YAML are trusted, in addition by default YAML.safe_load
+  # does not support aliases and other features we rely on
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  # don't require frozen literal comment
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    "%i": ()
+    "%w": ()
