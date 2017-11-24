@@ -1,6 +1,7 @@
 # heroku-one-off
 
 [![CircleCI](https://circleci.com/gh/technekes/heroku-one-off.svg?style=svg)](https://circleci.com/gh/technekes/heroku-one-off)
+[![Maintainability](https://api.codeclimate.com/v1/badges/27205b5241deec5e2637/maintainability)](https://codeclimate.com/github/technekes/heroku-one-off/maintainability)
 
 Take advantage of [Heroku One Off Dynos](https://devcenter.heroku.com/articles/one-off-dynos) to run tasks, for example on a larger dyno.
 
