@@ -2,6 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/technekes/heroku-one-off.svg?style=svg)](https://circleci.com/gh/technekes/heroku-one-off)
 [![Maintainability](https://api.codeclimate.com/v1/badges/27205b5241deec5e2637/maintainability)](https://codeclimate.com/github/technekes/heroku-one-off/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/27205b5241deec5e2637/test_coverage)](https://codeclimate.com/github/technekes/heroku-one-off/test_coverage)
 
 Take advantage of [Heroku One Off Dynos](https://devcenter.heroku.com/articles/one-off-dynos) to run tasks, for example on a larger dyno.
 

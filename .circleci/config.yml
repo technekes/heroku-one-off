@@ -11,6 +11,13 @@ jobs:
       - setup_remote_docker
 
       - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            cc_download_url=https://codeclimate.com/downloads/test-reporter/
+            curl -L $cc_download_url/test-reporter-latest-linux-amd64 > ./cc
+            chmod +x ./cc
+
+      - run:
           name: Build the image(s)
           command: |
             docker build -t heroku-one-off .
@@ -18,9 +25,19 @@ jobs:
       - run:
           name: Run tests
           command: |
-            docker run --rm -it heroku-one-off rake
+            # notify code climate that a build is starting
+            ./cc before-build
+            # run the specs
+            docker run --name=tests heroku-one-off rake
+            # copy coverage results out of the container
+            docker cp tests:/usr/src/app/coverage ./coverage
+            # notify code climate build is finished
+            ./cc after-build -t simplecov
 
       - run:
           name: Run danger checks
           command: |
             danger --verbose
+
+      - store_artifacts:
+          path: ./coverage
