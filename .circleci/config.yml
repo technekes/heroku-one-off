@@ -31,8 +31,6 @@ jobs:
             docker run --name=tests heroku-one-off rake
             # copy coverage results out of the container
             docker cp tests:/usr/src/app/coverage ./coverage
-            # make coverage results available to circle
-            cp -r ./coverage $CIRCLE_ARTIFACTS/coverage
             # notify code climate build is finished
             ./cc after-build -t simplecov
 
@@ -40,3 +38,6 @@ jobs:
           name: Run danger checks
           command: |
             danger --verbose
+
+      - store_artifacts:
+          path: ./coverage
