@@ -1,5 +1,7 @@
 # heroku-one-off
 
+[![CircleCI](https://circleci.com/gh/technekes/heroku-one-off.svg?style=svg)](https://circleci.com/gh/technekes/heroku-one-off)
+
 Take advantage of [Heroku One Off Dynos](https://devcenter.heroku.com/articles/one-off-dynos) to run tasks, for example on a larger dyno.
 
 ## Installation
