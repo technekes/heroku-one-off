@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: technekes/circleci:latest
+
+    working_directory: /usr/src/app
+
+    steps:
+      - checkout
+      - setup_remote_docker
+
+      - run:
+          name: Build the image(s)
+          command: |
+            docker build -t heroku-one-off .
+
+      - run:
+          name: Run tests
+          command: |
+            docker run --rm -it heroku-one-off rake
+
+      - run:
+          name: Run danger checks
+          command: |
+            danger --verbose
