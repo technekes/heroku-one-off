@@ -3,7 +3,10 @@ FROM ruby:2.4-alpine
 RUN \
   apk --no-cache add --virtual build-dependencie \
     build-base \
-    libffi-dev
+    libffi-dev && \
+  apk --no-cache add --virtual release-dependencie \
+    git \
+    openssh
 
 WORKDIR /usr/src/app
 
