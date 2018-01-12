@@ -8,3 +8,4 @@ services:
       # for purposes of release
       - $HOME/.ssh:/root/.ssh
       - $HOME/.gitconfig:/root/.gitconfig
+      - $HOME/.gem/:/root/.gem/
